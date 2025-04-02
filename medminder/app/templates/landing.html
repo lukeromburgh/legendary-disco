@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MedMinder</title>
+  </head>
+  <body>
+    <div class="flex lg:flex-row sm:flex-col items-center justify-center h-screen">
+    {% block content %} {% include "components/hero.html" %} {% endblock %} 
+    {% block signup %} {% include "components/signup_form.html" %} {% endblock %}
+    <div>
+  </body>
+</html>

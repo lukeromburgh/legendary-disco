@@ -3,7 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MedMinder</title>
+    <title>{% block title %}MedMinder{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
   </head>
-  <body></body>
+  <body>
+    <main>
+      <div class="flex lg:flex-row sm:flex-col items-center justify-center h-screen">
+      {% block content %}
+      <!-- This is where landing.html's content will go -->
+      {% endblock %} {% block signup%}
+      <!-- This is where signup.html's content will go -->
+      {% endblock %}
+      </div>
+    </main>
+  </body>
 </html>
