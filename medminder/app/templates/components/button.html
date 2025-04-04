@@ -1,5 +1,5 @@
 <!-- templates/components/button.html -->
-<button
+<button type="{{ type|default:'button' }}"
   class="w-full my-6 px-6 py-2 bg-[#2C2C2C] text-white rounded-full hover:bg-[#0e0e0e]"
 >
   {% block content %} {{label}} {% endblock %}
