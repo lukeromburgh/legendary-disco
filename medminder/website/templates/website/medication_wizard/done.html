@@ -1,0 +1,8 @@
+<h1>Your Plan</h1>
+<ul>
+    {% for key, value in all_data.items %}
+        <li><strong>{{ key }}:</strong> {{ value }}</li>
+    {% endfor %}
+</ul>
+<button>Add Plan</button>
+<button>Cancel</button>
