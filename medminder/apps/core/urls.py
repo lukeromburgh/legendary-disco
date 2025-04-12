@@ -1,8 +1,8 @@
 from django.urls import path
 from . import views
-from .views import MedicationWizard
+from .views import LandingPageView, MedicationWizard
 
 urlpatterns = [
-    path('', views.website, name='website'),
+    path('', LandingPageView.as_view(), name='landing_page'),
     path('add-plan/', MedicationWizard.as_view(), name='medication_wizard'),
 ]

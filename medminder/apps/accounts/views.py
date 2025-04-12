@@ -8,10 +8,10 @@ from django.http import JsonResponse
 
 
 # Create your views here.
-def landing(request):
+def signup_page(request):
     form = SignUpForm()
-    print("Rendering landing page")  # Debug
-    return render(request, 'landing.html', {'form': form})
+    print("Rendering signup page")  # Debug
+    return render(request, 'signup_page.html', {'form': form})
 
 def login_page(request):
     """
@@ -30,7 +30,7 @@ def signup(request):
             user = form.save()
             print(f"User {user.username} saved with ID {user.id}")  # Debug
             login(request, user)
-            return JsonResponse({'success': True, 'redirect': reverse('website')})  # Return JSON on success
+            return JsonResponse({'success': True, 'redirect': reverse('core')})  # Return JSON on success
         else:
             print("Form invalid:", form.errors)  # Debug
             return JsonResponse({'success': False, 'errors': form.errors})  # Return JSON on error
@@ -54,7 +54,7 @@ def login_user(request):
             if user is not None:
                 print(f"User {user.username} authenticated")
                 login(request, user)
-                return JsonResponse({'success': True, 'redirect': reverse('website')})  # Return JSON on success
+                return JsonResponse({'success': True, 'redirect': reverse('core')})  # Return JSON on success
             else:
                 # Authentication failed
                 print("Authentication failed")
@@ -72,11 +72,11 @@ def logout_view(request):
     # Log the user out.
     logout(request)
     # Redirect to a landing page or login page after logout.
-    return redirect(reverse('landing'))
+    return redirect(reverse('signup_page'))
     
-def redirect_to_website(request):
+def redirect_to_core(request):
     """
-    Redirect to the website page.
+    Redirect to the core page.
     """
-    print("Redirecting to website")  # Debug
-    return redirect(reverse('website'))
+    print("Redirecting to core")  # Debug
+    return redirect(reverse('core'))

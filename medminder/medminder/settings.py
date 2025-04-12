@@ -41,8 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'tailwind',
     'theme',
-    'website',
-    'app'
+    'apps.accounts.apps.AccountsConfig',  # Add this line
+    'apps.core.apps.CoreConfig', 
 ]
 
 TAILWIND_APP_NAME = 'theme'
@@ -67,7 +67,7 @@ ROOT_URLCONF = 'medminder.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / "app/templates", BASE_DIR / "theme/templates", BASE_DIR / "website/templates"], 
+        'DIRS': [BASE_DIR / "app/templates", BASE_DIR / "theme/templates", BASE_DIR / "core/templates"], 
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -130,8 +130,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR / "app/static",
-    BASE_DIR / "website/static/"
+    BASE_DIR / "apps/app/static",
+    BASE_DIR / "apps/core/static/"
 ]
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
